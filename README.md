@@ -16,7 +16,8 @@ Supported targets:
 - Ubuntu 14.04 LTS "Trusty Tahr"
 - Ubuntu 12.04 LTS "Precise Pangolin"
 - Debian (untested)
-- RedHat (untested)
+- RedHat 
+  - CentOS 6.6
 
 Installation methods:
 - Binary packages from the system repos.
@@ -49,6 +50,7 @@ At the moment, the following test boxes are available:
 
 - `test-ubuntu-precise`
 - `test-ubuntu-trusty`
+- `test-centos-6.6`
 
 
 Still to do
