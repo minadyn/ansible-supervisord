@@ -14,6 +14,9 @@ Vagrant.configure '2' do |config|
 	# Ubuntu machines are available:
 	# - "test-ubuntu-precise"
 	# - "test-ubuntu-trusty"
+    #
+    # CentOS machines are available:
+    # - "test-centos-6.6"
 
 	def apply_test_ansible_defaults(ansible)
 		ansible.playbook       = './test.yml'
@@ -32,6 +35,15 @@ Vagrant.configure '2' do |config|
 	config.vm.define 'test-ubuntu-precise', autostart:false do |box|
 		box.vm.box = "ubuntu/precise64"
 		config.vm.network :private_network, ip: "192.168.33.20"
+		config.vm.provision :ansible do |ansible|
+			apply_test_ansible_defaults ansible
+			ansible.extra_vars = {}
+		end
+	end
+
+    config.vm.define 'test-centos-6.6', autostart: false do |box|
+        box.vm.box = "puppetlabs/centos-6.6-64-nocm"
+		config.vm.network :private_network, ip: "192.168.33.22"
 		config.vm.provision :ansible do |ansible|
 			apply_test_ansible_defaults ansible
 			ansible.extra_vars = {}

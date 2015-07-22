@@ -29,3 +29,23 @@
     - deps
     - supervisor
     - supervisord
+
+- name: enable epel (RedHat)
+  sudo: yes
+  when: ansible_os_family == 'RedHat'
+  yum:
+      name: epel-release
+      state: present
+
+- name: Install Supervisord (RedHat)
+  sudo: yes
+  when: ansible_os_family == 'RedHat'
+  yum:
+    name: supervisor
+    enablerepo: epel
+    state: present
+    update_cache: yes
+  tags:
+    - deps
+    - supervisor
+    - supervisord

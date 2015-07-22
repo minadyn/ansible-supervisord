@@ -40,6 +40,7 @@
     src: "{{supervisord_conf_file}}"
     dest: "{{supervisord_conf_file_link}}"
     state: link
+    force: yes
   notify: restart supervisord
   tags:
     - conf

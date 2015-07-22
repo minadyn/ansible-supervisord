@@ -4,9 +4,14 @@
 [test-ubuntu-trusty]
 192.168.33.21 ansible_ssh_private_key_file=.vagrant/machines/test-ubuntu-trusty/virtualbox/private_key
 
+[test-centos-6.6]
+192.168.33.22 ansible_ssh_private_key_file=.vagrant/machines/test-centos-6.6/virtualbox/private_key
+
+
 [test:children]
 test-ubuntu-precise
 test-ubuntu-trusty
+test-centos-6.6
 
 [vagrant:children]
 test
